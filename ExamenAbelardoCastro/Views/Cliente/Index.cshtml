@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ExamenAbelardoCastro.Models.Cliente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.nombre)</th>
+            <th>@Html.DisplayNameFor(model => model.rut)</th>
+            <th>@Html.DisplayNameFor(model => model.razonSocial)</th>
+            <th>@Html.DisplayNameFor(model => model.ciudadId)</th>
+            <th>@Html.DisplayNameFor(model => model.categoriaId)</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.rut)</td>
+                <td>@Html.DisplayFor(modelItem => item.razonSocial)</td>
+                <td>@Html.DisplayFor(modelItem => item.ciudadId)</td>
+                <td>@Html.DisplayFor(modelItem => item.categoriaId)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.clienteId }, new { @class = "btn btn-warning btn-sm" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.clienteId }, new { @class = "btn btn-info btn-sm" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.clienteId }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
